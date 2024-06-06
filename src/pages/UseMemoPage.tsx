@@ -13,12 +13,22 @@ export default function UseMemoPage() {
   const doubleNumber = useMemo(() => slowFunction(number), [number]);
 
   //# 2 reason to use useMemo
-  //% referential equality
-  const themeStyles = {
-    backgroundColor: dark ? 'black' : 'white',
-    color: dark ? 'white' : 'black',
-    padding: '2rem',
-  };
+  //% referential equality and dependency array
+  // if we use it like this every render this will be new object and it will cause useEffect run again
+  // const themeStyles = {
+  //   backgroundColor: dark ? 'black' : 'white',
+  //   color: dark ? 'white' : 'black',
+  //   padding: '2rem',
+  // };
+
+  // using useMemo solves this problem!!!
+  const themeStyles = useMemo(() => {
+    return {
+      backgroundColor: dark ? 'black' : 'white',
+      color: dark ? 'white' : 'black',
+      padding: '2rem',
+    };
+  }, [dark]);
 
   useEffect(() => {
     // setThemeChangeCounter((prev) => prev + 1); // this would cause infinite loop
