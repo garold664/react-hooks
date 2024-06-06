@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 export default function UseMemoPage() {
   const [number, setNumber] = useState(0);
   const [dark, setDark] = useState(false);
-  const doubleNumber = slowFunction(number);
+  //# 1 reason to use useMemo
+  // slowFunction(number);
+  // if use slowFunction without useMemo the change of theme happens as slow as the change of number.
+  // but with useMemo the change of theme happens fast because it shouldn't change the number.
+  // use useMemo only if you have really slow calculations that you need to memoize.
+  const doubleNumber = useMemo(() => slowFunction(number), [number]);
+
   return (
     <>
       <h1>Use Memo Page</h1>
