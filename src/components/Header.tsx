@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-
 export default function Header() {
   return (
     <header className="header">
@@ -7,6 +6,9 @@ export default function Header() {
         <ul>
           <li>
             <Link to="/use-memo">UseMemo</Link>
+          </li>
+          <li>
+            <Link to="/use-ref">UseRef</Link>
           </li>
         </ul>
       </nav>
