@@ -15,7 +15,7 @@ function App() {
         <Route path="/use-context" element={<UseContextPage />} />
         <Route
           path="/class-based-component"
-          element={<ClassBasedComponent />}
+          element={<ClassBasedComponent value={10} />}
         />
       </Routes>
     </>
