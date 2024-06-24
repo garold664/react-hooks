@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from './UseContextPage';
+import { useThemeContext } from './ThemeContextProvider';
 
 export default function FunctionContextComponent() {
-  const darkTheme = useContext(ThemeContext);
+  const { darkTheme, toggleTheme } = useThemeContext();
   return (
     <div>
+      <button onClick={toggleTheme}>Toggle Theme</button>
       Function theme{' '}
       <b style={{ fontSize: '2rem' }}>{darkTheme ? 'dark' : 'light'}</b>
     </div>
