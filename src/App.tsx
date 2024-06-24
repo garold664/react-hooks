@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router';
 import UseMemoPage from './pages/UseMemoPage';
 import Header from './components/Header';
 import UseRefPage from './pages/UseRefPage';
+import UseContextPage from './pages/UseContextPage/UseContextPage';
 function App() {
   return (
     <>
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/use-memo" element={<UseMemoPage />} />
         <Route path="/use-ref" element={<UseRefPage />} />
+        <Route path="/use-context" element={<UseContextPage />} />
       </Routes>
     </>
   );

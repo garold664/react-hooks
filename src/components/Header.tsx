@@ -10,6 +10,9 @@ export default function Header() {
           <li>
             <Link to="/use-ref">UseRef</Link>
           </li>
+          <li>
+            <Link to="/use-context">UseContext</Link>
+          </li>
         </ul>
       </nav>
     </header>
