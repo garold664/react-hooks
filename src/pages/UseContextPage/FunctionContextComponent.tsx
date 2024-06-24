@@ -1,5 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from './UseContextPage';
 
 export default function FunctionContextComponent() {
-  return <div>Function theme</div>;
+  const darkTheme = useContext(ThemeContext);
+  return (
+    <div>
+      Function theme{' '}
+      <b style={{ fontSize: '2rem' }}>{darkTheme ? 'dark' : 'light'}</b>
+    </div>
+  );
 }
