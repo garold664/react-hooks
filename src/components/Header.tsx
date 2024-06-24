@@ -13,6 +13,9 @@ export default function Header() {
           <li>
             <Link to="/use-context">UseContext</Link>
           </li>
+          <li>
+            <Link to="/class-based-component">ClassBasedComponent</Link>
+          </li>
         </ul>
       </nav>
     </header>
