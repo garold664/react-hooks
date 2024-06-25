@@ -1,17 +1,22 @@
 import { useRef, useState } from 'react';
 
 export default function UseRef2Page() {
-  const itemsRef = useRef<Map<string, HTMLLIElement>>(null);
+  const itemsRef = useRef<Map<string, HTMLLIElement> | null>(null);
   const [catList, setCatList] = useState(setupCatList);
 
   function scrollToCat(cat: string) {
     const map = getMap();
     const node = map.get(cat);
-    node?.scrollIntoView({
+    if (!node) return;
+    node.style.borderColor = 'red';
+    node.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
       inline: 'center',
     });
+    setTimeout(() => {
+      node.style.borderColor = 'transparent';
+    }, 1000);
   }
 
   function getMap() {
@@ -33,6 +38,7 @@ export default function UseRef2Page() {
         <ul>
           {catList.map((cat) => (
             <li
+              style={{ transition: '0.6s', border: '2px solid transparent' }}
               key={cat}
               ref={(node) => {
                 const map = getMap();
