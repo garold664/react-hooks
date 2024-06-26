@@ -29,13 +29,26 @@ export default function UseRef2Page() {
 
   return (
     <>
+      <button
+        onClick={() =>
+          setCatList((prevState) => {
+            console.log(prevState);
+            return [
+              ...prevState,
+              'https://loremflickr.com/320/240/cat?lock=' + prevState.length,
+            ];
+          })
+        }
+      >
+        add a new cat
+      </button>
       <nav>
         <button onClick={() => scrollToCat(catList[0])}>Tom</button>
         <button onClick={() => scrollToCat(catList[5])}>Maru</button>
         <button onClick={() => scrollToCat(catList[9])}>Jellylorum</button>
       </nav>
       <div>
-        <ul>
+        <ol>
           {catList.map((cat) => (
             <li
               style={{ transition: '0.6s', border: '2px solid transparent' }}
@@ -52,7 +65,7 @@ export default function UseRef2Page() {
               <img src={cat} />
             </li>
           ))}
-        </ul>
+        </ol>
       </div>
     </>
   );
