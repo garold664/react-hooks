@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
 
-const users = ['user1', 'user2', 'user3'];
+const users = ['John', 'Tom', 'Ella', 'Rick', 'Anthony'];
+
+type StateValues = {
+  showUsers: boolean;
+  searchTerm: string;
+  filteredUsers: string[];
+};
+type PropsValues = { value: string };
+
 export default class ClassBasedComponent extends Component<
-  { value: string },
-  { showUsers: boolean }
+  PropsValues,
+  StateValues
 > {
   constructor(props: { value: string }) {
     super(props);
     this.state = {
       showUsers: false,
+      searchTerm: '',
+      filteredUsers: users,
     };
   }
 
@@ -18,11 +28,40 @@ export default class ClassBasedComponent extends Component<
     });
   }
 
+  componentDidMount() {
+    console.log('ClassBasedComponent mounted');
+  }
+
+  componentDidUpdate(_prevProps: PropsValues, prevState: StateValues) {
+    if (prevState.searchTerm !== this.state.searchTerm) {
+      this.setState({
+        filteredUsers: users.filter((user) =>
+          user.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+        ),
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    console.log('ClassBasedComponent will unmount');
+  }
+
   render() {
     return (
       <div>
         <h1>ClassBasedComponent</h1>
         <div>value: {this.props.value}</div>
+        <input
+          type="text"
+          value={this.state.searchTerm}
+          onChange={(e) => {
+            this.setState(() => {
+              return {
+                searchTerm: e.target.value,
+              };
+            });
+          }}
+        />
         {/* <button onClick={this.toggleUsersHandler.bind(this)}> */}
         <button onClick={() => this.toggleUsersHandler()}>
           toggle users list
@@ -30,7 +69,7 @@ export default class ClassBasedComponent extends Component<
         {this.state.showUsers && (
           <div>
             <ul>
-              {users.map((user) => (
+              {this.state.filteredUsers.map((user) => (
                 <li key={user}>{user}</li>
               ))}
             </ul>
