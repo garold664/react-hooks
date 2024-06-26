@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ListOfUsers from './ListOfUsers';
 
 const users = ['John', 'Tom', 'Ella', 'Rick', 'Anthony'];
 
@@ -6,6 +7,7 @@ type StateValues = {
   showUsers: boolean;
   searchTerm: string;
   filteredUsers: string[];
+  counter: number;
 };
 type PropsValues = { value: string };
 
@@ -19,6 +21,7 @@ export default class ClassBasedComponent extends Component<
       showUsers: false,
       searchTerm: '',
       filteredUsers: users,
+      counter: 0,
     };
   }
 
@@ -70,18 +73,17 @@ export default class ClassBasedComponent extends Component<
             });
           }}
         />
+        <button
+          onClick={() => this.setState({ counter: this.state.counter + 1 })}
+        >
+          {this.state.counter}
+        </button>
         {/* <button onClick={this.toggleUsersHandler.bind(this)}> */}
         <button onClick={() => this.toggleUsersHandler()}>
           toggle users list
         </button>
         {this.state.showUsers && (
-          <div>
-            <ul>
-              {this.state.filteredUsers.map((user) => (
-                <li key={user}>{user}</li>
-              ))}
-            </ul>
-          </div>
+          <ListOfUsers users={this.state.filteredUsers} />
         )}
       </div>
     );
