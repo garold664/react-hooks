@@ -30,15 +30,16 @@ export default function UseRef2Page() {
   return (
     <>
       <button
-        onClick={() =>
-          setCatList((prevState) => {
-            console.log(prevState);
-            return [
+        onClick={() => {
+          {
+            setCatList((prevState) => [
               ...prevState,
               'https://loremflickr.com/320/240/cat?lock=' + prevState.length,
-            ];
-          })
-        }
+            ]);
+            const lastItem = itemsRef.current?.get(catList[catList.length - 1]);
+            lastItem?.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
       >
         add a new cat
       </button>
