@@ -46,6 +46,14 @@ export default class ClassBasedComponent extends Component<
     console.log('ClassBasedComponent will unmount');
   }
 
+  shouldComponentUpdate(nextProps: PropsValues, nextState: StateValues) {
+    if (nextState.filteredUsers.length !== this.state.filteredUsers.length) {
+      return false;
+    }
+
+    return true;
+  }
+
   render() {
     return (
       <div>
