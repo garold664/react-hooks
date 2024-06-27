@@ -6,6 +6,7 @@ import UseRefPage from './pages/UseRefPage';
 import UseContextPage from './pages/UseContextPage/UseContextPage';
 import ClassBasedComponent from './pages/ClassBasedComponent/ClassBasedComponent';
 import UseRef2Page from './pages/UseRef2Page/UseRef2Page';
+import CustomHookPage from './pages/CustomHookPage/CustomHookPage';
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
           path="/class-based-component"
           element={<ClassBasedComponent value={10} />}
         />
+        <Route path="/custom-hook" element={<CustomHookPage />} />
       </Routes>
     </>
   );

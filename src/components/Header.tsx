@@ -19,6 +19,9 @@ export default function Header() {
           <li>
             <Link to="/class-based-component">ClassBasedComponent</Link>
           </li>
+          <li>
+            <Link to="/custom-hook">Custom Hook</Link>
+          </li>
         </ul>
       </nav>
     </header>
