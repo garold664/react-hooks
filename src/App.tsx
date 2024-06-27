@@ -7,6 +7,7 @@ import UseContextPage from './pages/UseContextPage/UseContextPage';
 import ClassBasedComponent from './pages/ClassBasedComponent/ClassBasedComponent';
 import UseRef2Page from './pages/UseRef2Page/UseRef2Page';
 import CustomHookPage from './pages/CustomHookPage/CustomHookPage';
+import UseLayoutEffect from './pages/UseLayoutEffect/UseLayoutEffect';
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
           element={<ClassBasedComponent value={10} />}
         />
         <Route path="/custom-hook" element={<CustomHookPage />} />
+        <Route path="/use-layout-effect" element={<UseLayoutEffect />} />
       </Routes>
     </>
   );

@@ -22,6 +22,9 @@ export default function Header() {
           <li>
             <Link to="/custom-hook">Custom Hook</Link>
           </li>
+          <li>
+            <Link to="/use-layout-effect">UseLayoutEffect</Link>
+          </li>
         </ul>
       </nav>
     </header>
