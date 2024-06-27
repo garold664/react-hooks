@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import useLocalStorage from './useLocalStorage';
 
 export default function CustomHookPage() {
-  const [name, setName] = useState('');
+  const [name, setName] = useLocalStorage('name', '');
   return (
     <>
       <h1>CustomHookPage</h1>
