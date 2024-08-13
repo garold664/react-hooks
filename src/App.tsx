@@ -19,7 +19,7 @@ function App() {
         <Route path="/use-context" element={<UseContextPage />} />
         <Route
           path="/class-based-component"
-          element={<ClassBasedComponent value={10} />}
+          element={<ClassBasedComponent value={'10'} />}
         />
         <Route path="/custom-hook" element={<CustomHookPage />} />
         <Route path="/use-layout-effect" element={<UseLayoutEffect />} />
